@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint PPDragDropBadgeView.podspec' to ensure this is a
+#  Be sure to run `pod spec lint CVTFramework.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "PPDragDropBadgeView"
-  s.version      = "0.0.1"
-  s.summary      = "A short description of PPDragDropBadgeView."
+  s.version      = "2.1.2"
+  s.summary      = "PPDragDropBadgeView is a badge view which able to drag and drop. Just like QQ 5.0 badge view."
 
   s.description  = <<-DESC
-                   A longer description of PPDragDropBadgeView in Markdown format.
+                   A longer description of CVTFramework in Markdown format.
 
                    * Think: Why did you write this? What is the focus? What does it do?
                    * CocoaPods will be using this to generate tags, and improve search results.
@@ -28,8 +28,7 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  s.homepage     = "http://EXAMPLE/PPDragDropBadgeView"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  s.homepage     = "https://github.com/smallmuou/PPDragDropBadgeView.git"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -39,7 +38,10 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = { :type => 'MIT',
+                      :text => %Q|Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n| +
+                               %Q|The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n| +
+                               %Q|THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE| }
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -53,10 +55,10 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "许文发" => "lvyexuwenfa100@126.com" }
-  # Or just: s.author    = "许文发"
-  # s.authors            = { "许文发" => "lvyexuwenfa100@126.com" }
-  # s.social_media_url   = "http://twitter.com/许文发"
+  s.author             = { "luhui" => "luhui@cvte.cn" }
+  # Or just: s.author    = "luhui"
+  # s.authors            = { "luhui" => "luhui@cvte.cn" }
+  # s.social_media_url   = "http://twitter.com/luhui"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -64,8 +66,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "8.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -78,59 +79,24 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/PPDragDropBadgeView.git", :tag => "0.0.1" }
+  s.source = { :git => "https://github.com/luhui/PPDragDropBadgeView.git", :tag => "v#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
+  #  giving a folder will include any h, m, mm, c & cpp files. For header
+  #  files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "PPDragDropBadgeView/PPDragDropBadgeView/*.{h,m}"
+  s.exclude_files = "PPDragDropBadgeView/PPDragDropBadgeView/PRTween"
+  s.resource = 'PPDragDropBadgeView/PPDragDropBadgeView/PPDragDropBadgeView.bundle'
+  s.dependency 'PRTween'
 
-  # s.public_header_files = "Classes/**/*.h"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-  # s.requires_arc = true
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
-
+  s.subspec 'PRTween' do |sp|
+    sp.requires_arc = false
+    sp.source_files = "PPDragDropBadgeView/PPDragDropBadgeView/PRTween"
+  end
 end
