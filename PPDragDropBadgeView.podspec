@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "PPDragDropBadgeView"
-  s.version      = "2.1.2"
+  s.version      = "2.1.3"
   s.summary      = "PPDragDropBadgeView is a badge view which able to drag and drop. Just like QQ 5.0 badge view."
 
   s.description  = <<-DESC
@@ -91,8 +91,11 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "PPDragDropBadgeView/PPDragDropBadgeView/*.{h,m}"
-  s.exclude_files = "PPDragDropBadgeView/PPDragDropBadgeView/PRTween"
-  s.resource = 'PPDragDropBadgeView/PPDragDropBadgeView/PPDragDropBadgeView.bundle'
+  s.exclude_files = "PPDragDropBadgeView/PPDragDropBadgeView/PRTween/**/*.{h,m}"
+  s.resource_bundles = {
+    'PPDragDropBadgeView' => ['PPDragDropBadgeView/PPDragDropBadgeView/PPDragDropBadgeView.bundle']
+  }
+
   s.dependency 'PRTween'
 
   s.subspec 'PRTween' do |sp|
